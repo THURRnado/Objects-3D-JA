@@ -1,0 +1,15 @@
+.customUnderline {
+  position: relative;
+  display: inline-block; /* Ou block, dependendo do que você quer */
+}
+
+.customUnderline::after {
+  content: '';
+  position: absolute;
+  left: 50%; /* Centraliza a linha */
+  transform: translateX(-50%); /* Centraliza a linha */
+  bottom: -20px; /* Ajuste para o espaçamento abaixo do texto */
+  width: 60px; /* Largura da linha */
+  height: 2px; /* Espessura da linha */
+  background-color: white; /* Cor da linha */
+}
