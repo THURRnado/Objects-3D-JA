@@ -1,5 +1,16 @@
+'use client'
+
 import styles from './style.module.css';
-import { IoArrowBack } from 'react-icons/io5'; // ícone de seta para voltar
+import { IoArrowBack } from 'react-icons/io5';
+import { useGLTF } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import { Suspense } from 'react'; 
+
+export function Modelo3D() {
+  const { scene } = useGLTF('/modelos3d/adamHeadGlb.glb');
+  return <primitive object={scene} scale={1.5} />;
+}
 
 export default function Objeto() {
   return (
@@ -16,11 +27,16 @@ export default function Objeto() {
         </div>
 
         <div className="w-full mt-12 flex flex-col items-center">
-            <img
-                src="https://placehold.co/150x150"
-                alt="Imagem de exemplo"
-                className="w-[80%] h-50 object-cover rounded-lg shadow-lg"
-            />
+            <div className="w-[80%] h-[500px] rounded-lg overflow-hidden shadow-lg">
+                <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+                    <ambientLight intensity={0.8} />
+                    <directionalLight position={[0, 5, 5]} intensity={1} />
+                    <Suspense fallback={null}>
+                    <Modelo3D />
+                    </Suspense>
+                    <OrbitControls />
+                </Canvas>
+            </div>
 
             <p className="mt-5 text-white text-left w-[80%]">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi aliquam laboriosam architecto illo unde esse nam asperiores error commodi debitis. Optio ullam voluptate ex aliquid ducimus qui officia eaque iure?
