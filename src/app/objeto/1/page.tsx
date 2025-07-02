@@ -8,7 +8,7 @@ import { OrbitControls } from '@react-three/drei';
 import { Suspense } from 'react'; 
 
 export function Modelo3D() {
-  const { scene } = useGLTF('/modelos3d/adamHeadGlb.glb');
+  const { scene } = useGLTF('/modelos3d/rusty_diving_helmet_-_4096px2.glb');
   return <primitive object={scene} scale={1.5} />;
 }
 
@@ -27,7 +27,7 @@ export default function Objeto() {
         </div>
 
         <div className="w-full mt-12 flex flex-col items-center">
-            <div className="w-[80%] h-[500px] rounded-lg overflow-hidden shadow-lg">
+            <div className="w-[80%] h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
                 <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
                     <ambientLight intensity={0.8} />
                     <directionalLight position={[0, 5, 5]} intensity={1} />
@@ -47,6 +47,19 @@ export default function Objeto() {
             <h1 className={`${styles.customUnderline} text-3xl text-white`}>
             Proximos
             </h1>
+        </div>
+
+        <div className="w-full mt-12 overflow-x-auto">
+            <div className="flex gap-3 px-3 mb-5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                <img
+                    key={i}
+                    src={`https://placehold.co/300x200?text=Objeto+${i + 1}`}
+                    alt={`Imagem ${i + 1}`}
+                    className="w-30 h-30 object-cover rounded-lg shadow-md flex-shrink-0"
+                />
+                ))}
+            </div>
         </div>
 
     </div>
