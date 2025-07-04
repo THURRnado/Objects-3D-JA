@@ -6,6 +6,7 @@ import { useGLTF } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { Suspense } from 'react'; 
+import Link from 'next/link';
 
 export function Modelo3D() {
   const { scene } = useGLTF('/modelos3d/rusty_diving_helmet_-_4096px2.glb');
@@ -17,12 +18,14 @@ export default function Objeto() {
     <div className="min-h-screen w-screen bg-gradient-to-tr from-[#712E6D] to-[#312727]">
       
         <div className="w-full flex justify-center pt-10 relative">
-            <button className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#4D3353] text-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:scale-105 transition">
-                <IoArrowBack size={20} />
-            </button>
+            <Link href="/">
+                <button className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#4D3353] text-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:scale-105 transition">
+                    <IoArrowBack size={20} />
+                </button>
+            </Link>
 
             <h1 className={`${styles.customUnderline} text-3xl text-white`}>
-                Lorem
+                Titulo
             </h1>
         </div>
 
@@ -52,12 +55,14 @@ export default function Objeto() {
         <div className="w-full mt-12 overflow-x-auto">
             <div className="flex gap-3 px-3 mb-5">
                 {Array.from({ length: 5 }).map((_, i) => (
-                <img
-                    key={i}
-                    src={`https://placehold.co/300x200?text=Objeto+${i + 1}`}
-                    alt={`Imagem ${i + 1}`}
-                    className="w-30 h-30 object-cover rounded-lg shadow-md flex-shrink-0"
-                />
+                <Link href={`/objeto/${i + 1}`} key={i} className="flex-shrink-0">
+                  <img
+                      key={i}
+                      src={`https://placehold.co/300x200?text=Objeto+${i + 1}`}
+                      alt={`Imagem ${i + 1}`}
+                      className="w-30 h-30 object-cover rounded-lg shadow-md flex-shrink-0"
+                  />
+                </Link>
                 ))}
             </div>
         </div>
