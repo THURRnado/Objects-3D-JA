@@ -19,7 +19,7 @@ export default function Objeto() {
       
         <div className="w-full flex justify-center pt-10 relative">
             <Link href="/">
-                <button className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#4D3353] text-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:scale-105 transition">
+                <button className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#4D3353] text-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:scale-105 transition cursor-pointer">
                     <IoArrowBack size={20} />
                 </button>
             </Link>
@@ -30,8 +30,8 @@ export default function Objeto() {
         </div>
 
         <div className="w-full mt-12 flex flex-col items-center">
-            <div className="w-[80%] h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
-                <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+            <div className="bg-white/10 w-[80%] h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl cursor-grab active:cursor-grabbing">
+                <Canvas camera={{ position: [0, 0, 1], fov: 50 }}>
                     <ambientLight intensity={0.8} />
                     <directionalLight position={[0, 5, 5]} intensity={1} />
                     <Suspense fallback={null}>
