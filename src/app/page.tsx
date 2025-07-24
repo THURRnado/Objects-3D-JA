@@ -77,7 +77,7 @@ export default function Home() {
             onClose={fecharModal}
             title={`Objeto ${objetoSelecionado}`}
             descricao="Essa é a descrição do objeto 3D exibido."
-            glbUrl="/modelos3d/rusty_diving_helmet_-_4096px2.glb"
+            glbUrl="/modelos3d/adamHeadGlb.glb"
             />
         )}
     </div>
