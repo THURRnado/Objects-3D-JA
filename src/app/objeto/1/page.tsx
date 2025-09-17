@@ -1,17 +1,12 @@
 'use client'
 
-import styles from './style.module.css';
-import { IoArrowBack } from 'react-icons/io5';
-import { useGLTF } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { Suspense } from 'react'; 
+import { Canvas } from '@react-three/fiber';
 import Link from 'next/link';
-
-export function Modelo3D() {
-  const { scene } = useGLTF('/modelos3d/OilCan.glb');
-  return <primitive object={scene} scale={1.5} />;
-}
+import { Suspense } from 'react';
+import { IoArrowBack } from 'react-icons/io5';
+import { Modelo3D } from '../../../../components/modelo3D';
+import styles from './style.module.css';
 
 export default function Objeto() {
   return (
@@ -31,7 +26,7 @@ export default function Objeto() {
 
         <div className="w-full mt-12 flex flex-col items-center">
             <div className="bg-white/10 w-[80%] h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl cursor-grab active:cursor-grabbing">
-                <Canvas camera={{ position: [0, 0, 1], fov: 50 }}>
+                <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
                     <ambientLight intensity={0.8} />
                     <directionalLight position={[0, 5, 5]} intensity={1} />
                     <Suspense fallback={null}>

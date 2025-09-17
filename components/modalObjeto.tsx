@@ -4,11 +4,7 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
-
-export function Modelo3D({ url }: { url: string }) {
-  const { scene } = useGLTF(url);
-  return <primitive object={scene} scale={1.5} />;
-}
+import { Modelo3D } from './modelo3D';
 
 export default function ModalObjeto({
   isOpen,
@@ -54,10 +50,10 @@ export default function ModalObjeto({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-white/10 flex-1 h-[300px] lg:h-full rounded-lg overflow-hidden cursor-grab active:cursor-grabbing">
-              <Canvas camera={{ position: [0, 0, 1], fov: 50 }}>
+              <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
                 <ambientLight intensity={0.8} />
                 <directionalLight position={[0, 5, 5]} intensity={1} />
-                <Modelo3D url={glbUrl} />
+                <Modelo3D />
                 <OrbitControls />
               </Canvas>
             </div>
