@@ -9,7 +9,7 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 
 export function Modelo3D() {
-  const { scene } = useGLTF('/modelos3d/rusty_diving_helmet_-_4096px2.glb');
+  const { scene } = useGLTF('/modelos3d/OilCan.glb');
   return <primitive object={scene} scale={1.5} />;
 }
 
